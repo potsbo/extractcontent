@@ -198,8 +198,8 @@ module ExtractContent
     st.gsub!(/[\342\224\200-\342\224\277]|[\342\225\200-\342\225\277]/, '') # keisen
     st.gsub!(/\343\200\200/, ' ')
     self::CHARREF.each{|ref, c| st.gsub!(ref, c) }
-    st = CGI.unescapeHTML(st)
     st.scrub!
+    st = CGI.unescapeHTML(st)
     st.gsub(/[ \t]+/, " ")
     st.gsub(/\n\s*/, "\n")
   end
