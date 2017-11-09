@@ -199,6 +199,7 @@ module ExtractContent
     st.gsub!(/\343\200\200/, ' ')
     self::CHARREF.each{|ref, c| st.gsub!(ref, c) }
     st = CGI.unescapeHTML(st)
+    st.scrub!
     st.gsub(/[ \t]+/, " ")
     st.gsub(/\n\s*/, "\n")
   end
